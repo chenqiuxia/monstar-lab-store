@@ -19,7 +19,7 @@
 </template>
 <script>
   import { Carousel, CarouselItem } from 'element-ui'
-  import { CommercialService } from './Commercial.service.js'
+  import service from '../../api/commercials'
   export default {
     name: 'Commercial',
     data () {
@@ -38,11 +38,9 @@
       CarouselItem
     },
     created () {
-      let service = new CommercialService()
-      service.getCommercials().then(data => {
+      service.getCommercials(data => {
         this.items = data
       })
-      //        .catch(console.error('vue error'))
     }
   }
 </script>
@@ -77,7 +75,7 @@
         padding-bottom: 4rem;
         font-size: 2rem;
       }
-      a{
+      a {
         display: block;
         width: 15rem;
         padding: 1rem 0;
@@ -86,8 +84,8 @@
         font-weight: 400;
         text-align: center;
         color: #fff;
-        &:hover{
-          color: map-get($global-color,text-main);
+        &:hover {
+          color: map-get($global-color, text-main);
           background-color: #fff;
         }
       }

@@ -6,58 +6,21 @@
   </el-checkbox>
 </template>
 
-<style lang="scss">
-  @import "../../assets/stylesheet/components_import";
-  .el-checkbox {
-    overflow: hidden;
-    &.hide-checkbox {
-      background-color: #fff;
-      position: relative;
-      &.is-checked {
-        color: #fff;
-        background-color: map-get($global-color-base, primary);
-        border-color: map-get($global-color-base, primary);
-        &:after {
-          content: "";
-          @include triangle($direction: br, $border-width: 14px);
-          @include position-location ($top: auto, $bottom: 0, $left: auto, $right: 0);
-        }
-      }
-      .el-checkbox__inner {
-        display: none;
-      }
-      .el-checkbox__label {
-        padding-left: 8px;
-      }
-      .el-checkbox__input {
-        &.is-checked {
-           &+ .el-checkbox__label {
-             color: #fff;
-           }
-        }
-      }
-    }
-  }
-</style>
-
 <script>
+  import { Checkbox } from 'element-ui'
   export default {
     name: 'CheckButton',
     props: {
-      proId: {
-      },
+      proId: {},
       proHideCheckbox: {
         default: false
       },
-      proLabel: {
-      },
+      proLabel: {},
       proEditAble: {
         default: false
       },
-      proIndex: {
-      },
-      proSize: {
-      }
+      proIndex: {},
+      proSize: {}
     },
     data () {
       return {
@@ -68,6 +31,9 @@
         index: this.proIndex,
         size: this.proSize
       }
+    },
+    components: {
+      ElCheckbox: Checkbox
     },
     watch: {
       proId (value) {
@@ -95,3 +61,38 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../assets/stylesheet/components_import";
+
+  .el-checkbox {
+    overflow: hidden;
+    &.hide-checkbox {
+      background-color: #fff;
+      position: relative;
+      &.is-checked {
+        color: #fff;
+        background-color: map-get($global-color-base, primary);
+        border-color: map-get($global-color-base, primary);
+        &:after {
+          content: "";
+          @include triangle($direction: br, $border-width: 14px);
+          @include position-location ($top: auto, $bottom: 0, $left: auto, $right: 0);
+        }
+      }
+      .el-checkbox__inner {
+        display: none;
+      }
+      .el-checkbox__label {
+        padding-left: 8px;
+      }
+      .el-checkbox__input {
+        &.is-checked {
+          & + .el-checkbox__label {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+</style>

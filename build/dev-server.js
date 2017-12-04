@@ -102,36 +102,36 @@ devMiddleware.waitUntilValid(() => {
 /**
  *Simulate the web API start
  */
-var appData = require('../data.json')
-var navs = appData.navs
-var commercials = appData.commercials
-var products = appData.products
-var productTypes = appData.productTypes
-
-var apiRoutes = express.Router()
-
-apiRoutes.get('/navs', function (req, res) {
-  res.json(navs)
-})
-
-apiRoutes.get('/commercials', function (req, res) {
-  res.json(commercials)
-})
-
-apiRoutes.get('/products', function (req, res) {
-  res.json(products)
-})
-
-apiRoutes.get('/productTypes', function (req, res) {
-  res.json(productTypes)
-})
+// var appData = require('../data.json')
+// var navs = appData.navs
+// var commercials = appData.commercials
+// var products = appData.products
+// var productTypes = appData.productTypes
+//
+// var apiRoutes = express.Router()
+//
+// apiRoutes.get('/navs', function (req, res) {
+//   res.json(navs)
+// })
+//
+// apiRoutes.get('/commercials', function (req, res) {
+//   res.json(commercials)
+// })
+//
+// apiRoutes.get('/products', function (req, res) {
+//   res.json(products)
+// })
+//
+// apiRoutes.get('/productTypes', function (req, res) {
+//   res.json(productTypes)
+// })
 //
 // apiRoutes.get('/products/:id', function (req, res) {
 //   var id = req.params.id
 //   res.json(products[id])
 // })
 
-app.use('/api', apiRoutes)
+// app.use('/api', apiRoutes)
 
 /**
  *Simulate the web API end

@@ -6,6 +6,5 @@ export class CommercialService {
   getCommercials () {
     return axios.get(this.url)
       .then((response) => response.data)
-    // .catch(console.log('error'))
   }
 }

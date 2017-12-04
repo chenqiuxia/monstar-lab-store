@@ -1,6 +1,7 @@
 <template>
   <el-checkbox-group :size="size">
-    <ms-check-button v-for="(button, index) in buttons" :key="button.id" :proHideCheckbox="hideCheckbox" :proLabel="button.name" :proIndex="index"></ms-check-button>
+    <check-button v-for="(button, index) in buttons" :key="button.id" :proHideCheckbox="hideCheckbox"
+                  :proLabel="button.name" :proIndex="index"></check-button>
   </el-checkbox-group>
 </template>
 
@@ -8,14 +9,11 @@
   @import "../../assets/stylesheet/components_import";
 </style>
 
-
 <script>
+  import { CheckboxGroup } from 'element-ui'
   import CheckButton from './CheckButton'
   export default {
     name: 'CheckButtonGroup',
-    components: {
-      'ms-check-button': CheckButton
-    },
     props: {
       proSize: {
         default: 'small'
@@ -37,6 +35,10 @@
         appendAble: this.proAppendAble,
         hideCheckbox: this.proHideCheckbox
       }
+    },
+    components: {
+      ElCheckboxGroup: CheckboxGroup,
+      CheckButton
     },
     watch: {
       proSize (value) {
